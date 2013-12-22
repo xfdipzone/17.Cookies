@@ -55,7 +55,7 @@ class Cookies{ // class start
 
         $cookie_name = $this->getName($name);
         $cookie_expire = time() + ($expire? $expire : $this->_expire);
-        $cookie_value = $this->pack($value, $cookie_expire, 'pack');
+        $cookie_value = $this->pack($value, $cookie_expire);
         $cookie_value = $this->authcode($cookie_value, 'ENCODE', $this->_securekey);
 
         if($cookie_name && $cookie_value && $cookie_expire){
@@ -106,7 +106,7 @@ class Cookies{ // class start
                 $cookie_expire = $old_cookie_value[1];
 
                 // 更新cookies数据
-                $cookie_value = $this->pack($value, $cookie_expire, 'pack');
+                $cookie_value = $this->pack($value, $cookie_expire);
                 $cookie_value = $this->authcode($cookie_value, 'ENCODE', $this->_securekey);
 
                 if($cookie_name && $cookie_value && $cookie_expire){
