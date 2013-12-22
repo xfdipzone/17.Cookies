@@ -104,7 +104,7 @@ class Cookies{ // class start
 
                 $cookie_expire = $old_cookie_value[1];
 
-                // 更新数据
+                // 更新cookies数据
                 $cookie_value = $this->pack($value, $cookie_expire, 'pack');
                 $cookie_value = $this->authcode($cookie_value, 'ENCODE', $this->_securekey);
 
