@@ -7,7 +7,7 @@ if(!in_array($type, array('set','get','update','clear'))){
     exit('type not exists');
 }
 
-$obj = new Cookies('member', '', 10); // obj
+$obj = new Cookies('member', 10); // obj
 
 switch($type){
 

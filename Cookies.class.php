@@ -26,20 +26,21 @@ class Cookies{ // class start
 
     /** 初始化
     * @param String $prefix     cookie prefix
+    * @param String $expire     过期时间
     * @param String $securekey  cookie secure key
     */
-    public function __construct($prefix='', $securekey='', $expire=0){
+    public function __construct($prefix='', $expire=0, $securekey=''){
 
         if(is_string($prefix) && $prefix!=''){
             $this->_prefix = $prefix;
         }
 
-        if(is_string($securekey) && $securekey!=''){
-            $this->_securekey = $securekey;
-        }
-
         if(is_numeric($expire) && $expire>0){
             $this->_expire = $expire;
+        }
+
+        if(is_string($securekey) && $securekey!=''){
+            $this->_securekey = $securekey;
         }
 
     }
