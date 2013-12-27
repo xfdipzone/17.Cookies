@@ -170,7 +170,7 @@ class Cookies{ // class start
     /** pack
     * @param  Mixed  $data      数据
     * @param  int    $expire    过期时间 用于判断
-    * @return
+    * @return String
     */
     private function pack($data, $expire){
 
