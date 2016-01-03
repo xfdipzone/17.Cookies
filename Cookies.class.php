@@ -56,7 +56,7 @@ class Cookies{ // class start
         $cookie_name = $this->getName($name);
         $cookie_expire = time() + ($expire? $expire : $this->_expire);
         $cookie_value = $this->pack($value, $cookie_expire);
-        $cookie_value = $this->authcode($cookie_value, 'ENCODE', $this->_securekey);
+        $cookie_value = $this->authcode($cookie_value, 'ENCODE');
 
         if($cookie_name && $cookie_value && $cookie_expire){
             setcookie($cookie_name, $cookie_value, $cookie_expire);
@@ -75,7 +75,7 @@ class Cookies{ // class start
 
         if(isset($_COOKIE[$cookie_name])){
 
-            $cookie_value = $this->authcode($_COOKIE[$cookie_name], 'DECODE', $this->_securekey);
+            $cookie_value = $this->authcode($_COOKIE[$cookie_name], 'DECODE');
             $cookie_value = $this->unpack($cookie_value);
 
             return isset($cookie_value[0])? $cookie_value[0] : null;
@@ -98,7 +98,7 @@ class Cookies{ // class start
 
         if(isset($_COOKIE[$cookie_name])){
 
-            $old_cookie_value = $this->authcode($_COOKIE[$cookie_name], 'DECODE', $this->_securekey);
+            $old_cookie_value = $this->authcode($_COOKIE[$cookie_name], 'DECODE');
             $old_cookie_value = $this->unpack($old_cookie_value);
 
             if(isset($old_cookie_value[1]) && $old_cookie_value[1]>0){ // 获取之前的过期时间
@@ -107,7 +107,7 @@ class Cookies{ // class start
 
                 // 更新cookies数据
                 $cookie_value = $this->pack($value, $cookie_expire);
-                $cookie_value = $this->authcode($cookie_value, 'ENCODE', $this->_securekey);
+                $cookie_value = $this->authcode($cookie_value, 'ENCODE');
 
                 if($cookie_name && $cookie_value && $cookie_expire){
                     setcookie($cookie_name, $cookie_value, $cookie_expire);
